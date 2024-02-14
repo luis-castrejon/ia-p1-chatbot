@@ -5,6 +5,9 @@ from chatterbot.conversation import Statement
 from datetime import datetime
 import pytz
 import re
+import json
+from unidecode import unidecode
+
 
 # Adaptador lógico para responder la hora en español
 class AdaptadorLogicoTiempoEspanol(LogicAdapter):
@@ -70,6 +73,39 @@ class AdaptadorLogicoMatematicasEspanol(LogicAdapter):
         declaracion_respuesta.confidence = 1
         return declaracion_respuesta
 
+class AdaptadorLogicoCapitales(LogicAdapter):
+    def __init__(self, chatbot, **kwargs):
+        super().__init__(chatbot, **kwargs)
+        # Cargar el archivo JSON con las conversaciones
+        with open('./data/paises_y_capitales.json', encoding='utf-8') as archivo:
+            self.capitales = json.load(archivo)["conversations"]
+
+    def can_process(self, declaracion):
+        texto = unidecode(declaracion.text.lower())
+        if "cual es la capital de" in texto:
+            return True
+        return False
+
+    def process(self, declaracion_entrada, parametros_adicionales_seleccion_respuesta):
+        texto_entrada = unidecode(declaracion_entrada.text.lower()) 
+        texto_entrada = re.sub(r'[^\w\s]', '', texto_entrada)  # Remover puntuación
+
+        respuesta_confianza = 0
+        respuesta_texto = "Lo siento, no tengo esa información."
+
+        # Buscar en el archivo JSON la capital del país preguntado
+        for pregunta, respuesta in self.capitales:
+            pregunta_normalizada = unidecode(pregunta.lower())  # Normalizar para remover acentos y convertir a minúsculas
+            pregunta_normalizada = re.sub(r'[^\w\s]', '', pregunta_normalizada)  # Remover puntuación
+            if pregunta_normalizada == texto_entrada:
+                respuesta_texto = respuesta
+                respuesta_confianza = 1
+                break
+
+        declaracion_respuesta = Statement(text=respuesta_texto)
+        declaracion_respuesta.confidence = respuesta_confianza
+        return declaracion_respuesta
+
 # Configuración del chatbot
 chatbot = ChatBot(
     'TerminalBot',
@@ -80,10 +116,11 @@ chatbot = ChatBot(
         {
             'import_path': 'chatterbot.logic.BestMatch',
             'default_response': 'Lo siento, pero no entiendo.',
-            'maximum_similarity_threshold': 1
+            'maximum_similarity_threshold': 0.95
         },
         '__main__.AdaptadorLogicoTiempoEspanol',
         '__main__.AdaptadorLogicoMatematicasEspanol',
+        '__main__.AdaptadorLogicoCapitales',
         {
             'import_path': 'chatterbot.logic.SpecificResponseAdapter',
             'input_texto': 'Ayuda',
@@ -94,8 +131,8 @@ chatbot = ChatBot(
 
 # Entrenamiento del chatbot
 entrenador = ChatterBotCorpusTrainer(chatbot)
-entrenador.train("chatterbot.corpus.spanish")
-entrenador.train("./data/paises_y_capitales.json")
+#entrenador.train("chatterbot.corpus.spanish")
+#entrenador.train("./data/paises_y_capitales.json")
 
 # Interacción con el chatbot
 print("\n¡Hola! Soy TerminalBot. ¿En qué puedo ayudarte? Escribe 'salir' para terminar.")

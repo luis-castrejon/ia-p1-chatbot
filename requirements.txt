@@ -3,3 +3,4 @@ chatterbot_corpus
 nltk
 spacy==2.2
 pytz
+unidecode
