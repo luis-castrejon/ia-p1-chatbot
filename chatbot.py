@@ -2,11 +2,11 @@ from chatterbot import ChatBot
 from chatterbot.trainers import ChatterBotCorpusTrainer
 from chatterbot.logic import LogicAdapter
 from chatterbot.conversation import Statement
+from unidecode import unidecode
 from datetime import datetime
 import pytz
 import re
 import json
-from unidecode import unidecode
 
 
 # Adaptador lógico para responder la hora en español
@@ -106,6 +106,37 @@ class AdaptadorLogicoCapitales(LogicAdapter):
         declaracion_respuesta.confidence = respuesta_confianza
         return declaracion_respuesta
 
+class AdaptadorLogicoFechaEspanol(LogicAdapter):
+    def __init__(self, chatbot, **kwargs):
+        super().__init__(chatbot, **kwargs)
+
+    def can_process(self, declaracion):
+        texto = declaracion.text.lower()
+        if any(palabra in texto for palabra in ['fecha', 'día', 'dia']):
+            return True
+        return False
+
+    def process(self, declaracion_entrada, parametros_adicionales_seleccion_respuesta):
+        zona_horaria = pytz.timezone('America/Mexico_City')
+        ahora = datetime.now(zona_horaria)
+        fecha_texto = ahora.strftime('%A, %d de %B de %Y')
+        
+        # Traducción de los días de la semana y meses al español
+        traducciones = {
+            "Monday": "Lunes", "Tuesday": "Martes", "Wednesday": "Miércoles",
+            "Thursday": "Jueves", "Friday": "Viernes", "Saturday": "Sábado",
+            "Sunday": "Domingo", "January": "Enero", "February": "Febrero",
+            "March": "Marzo", "April": "Abril", "May": "Mayo", "June": "Junio",
+            "July": "Julio", "August": "Agosto", "September": "Septiembre",
+            "October": "Octubre", "November": "Noviembre", "December": "Diciembre"
+        }
+        for ingles, espanol in traducciones.items():
+            fecha_texto = fecha_texto.replace(ingles, espanol)
+
+        declaracion_respuesta = Statement(text=f"Hoy es {fecha_texto}.")
+        declaracion_respuesta.confidence = 1
+        return declaracion_respuesta
+
 # Configuración del chatbot
 chatbot = ChatBot(
     'TerminalBot',
@@ -121,6 +152,7 @@ chatbot = ChatBot(
         '__main__.AdaptadorLogicoTiempoEspanol',
         '__main__.AdaptadorLogicoMatematicasEspanol',
         '__main__.AdaptadorLogicoCapitales',
+        '__main__.AdaptadorLogicoFechaEspanol',
         {
             'import_path': 'chatterbot.logic.SpecificResponseAdapter',
             'input_texto': 'Ayuda',
