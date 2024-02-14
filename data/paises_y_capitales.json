@@ -1,0 +1,784 @@
+{
+  "conversations": [
+    [
+      "¿Cuál es la capital de Afganistán?",
+      "Kabul"
+    ],
+    [
+      "¿Cuál es la capital de Albania?",
+      "Tirana"
+    ],
+    [
+      "¿Cuál es la capital de Alemania?",
+      "Berlín"
+    ],
+    [
+      "¿Cuál es la capital de Andorra?",
+      "Andorra La Vella"
+    ],
+    [
+      "¿Cuál es la capital de Angola?",
+      "Luanda"
+    ],
+    [
+      "¿Cuál es la capital de Antigua y Barbuda?",
+      "Saint John’s"
+    ],
+    [
+      "¿Cuál es la capital de Arabia Saudita?",
+      "Riad"
+    ],
+    [
+      "¿Cuál es la capital de Argelia?",
+      "Argel"
+    ],
+    [
+      "¿Cuál es la capital de Argentina?",
+      "Buenos Aires"
+    ],
+    [
+      "¿Cuál es la capital de Armenia?",
+      "Erván"
+    ],
+    [
+      "¿Cuál es la capital de Australia?",
+      "Camberra"
+    ],
+    [
+      "¿Cuál es la capital de Austria?",
+      "Viena"
+    ],
+    [
+      "¿Cuál es la capital de Azerbaiyán?",
+      "Bakú"
+    ],
+    [
+      "¿Cuál es la capital de Bahamas?",
+      "Násau"
+    ],
+    [
+      "¿Cuál es la capital de Bangladés?",
+      "Daca"
+    ],
+    [
+      "¿Cuál es la capital de Barbados?",
+      "Bridgetown"
+    ],
+    [
+      "¿Cuál es la capital de Baréin?",
+      "Manama"
+    ],
+    [
+      "¿Cuál es la capital de Bélgica?",
+      "Bruselas"
+    ],
+    [
+      "¿Cuál es la capital de Belice?",
+      "Belmopán"
+    ],
+    [
+      "¿Cuál es la capital de Bielorrusia?",
+      "Minsk"
+    ],
+    [
+      "¿Cuál es la capital de Benín?",
+      "Porto Novo"
+    ],
+    [
+      "¿Cuál es la capital de Myanmar?",
+      "Naipyidó"
+    ],
+    [
+      "¿Cuál es la capital de Bolivia?",
+      "Sucre"
+    ],
+    [
+      "¿Cuál es la capital de Bosnia y Herzegovina?",
+      "Sarajevo"
+    ],
+    [
+      "¿Cuál es la capital de Botsuana?",
+      "Navorone"
+    ],
+    [
+      "¿Cuál es la capital de Brasil?",
+      "Brasilia"
+    ],
+    [
+      "¿Cuál es la capital de Brunei Darussalam?",
+      "Bandar Seri Begawan"
+    ],
+    [
+      "¿Cuál es la capital de Bulgaria?",
+      "Sofia"
+    ],
+    [
+      "¿Cuál es la capital de Burkina Faso?",
+      "Uagadugú"
+    ],
+    [
+      "¿Cuál es la capital de Burundi?",
+      "Guitega"
+    ],
+    [
+      "¿Cuál es la capital de Bután?",
+      "Timbu"
+    ],
+    [
+      "¿Cuál es la capital de Cabo Verde?",
+      "Praia"
+    ],
+    [
+      "¿Cuál es la capital de Camboya?",
+      "Nom Pen"
+    ],
+    [
+      "¿Cuál es la capital de Camerún?",
+      "Yaundé"
+    ],
+    [
+      "¿Cuál es la capital de Canadá?",
+      "Ottawa"
+    ],
+    [
+      "¿Cuál es la capital de Catar?",
+      "Doha"
+    ],
+    [
+      "¿Cuál es la capital de República Centroafricana?",
+      "Bangui"
+    ],
+    [
+      "¿Cuál es la capital de Chad?",
+      "Yamena"
+    ],
+    [
+      "¿Cuál es la capital de República Checa?",
+      "Praga"
+    ],
+    [
+      "¿Cuál es la capital de Chile?",
+      "Santiago de Chile"
+    ],
+    [
+      "¿Cuál es la capital de China?",
+      "Pekín"
+    ],
+    [
+      "¿Cuál es la capital de Chipre?",
+      "Nicosia"
+    ],
+    [
+      "¿Cuál es la capital de Colombia?",
+      "Bogotá"
+    ],
+    [
+      "¿Cuál es la capital de Comoras?",
+      "Moroni"
+    ],
+    [
+      "¿Cuál es la capital de República del Congo?",
+      "Brazzaville"
+    ],
+    [
+      "¿Cuál es la capital de República Democrática del Congo?",
+      "Kinsasa"
+    ],
+    [
+      "¿Cuál es la capital de Corea del Norte?",
+      "Pionyang"
+    ],
+    [
+      "¿Cuál es la capital de Corea del Sur?",
+      "Seul"
+    ],
+    [
+      "¿Cuál es la capital de Costa de Marfil?",
+      "Yamusukro"
+    ],
+    [
+      "¿Cuál es la capital de Costa Rica?",
+      "San José"
+    ],
+    [
+      "¿Cuál es la capital de Croacia?",
+      "Zagreb"
+    ],
+    [
+      "¿Cuál es la capital de Cuba?",
+      "La Habana"
+    ],
+    [
+      "¿Cuál es la capital de Dinamarca?",
+      "Copenhague"
+    ],
+    [
+      "¿Cuál es la capital de Dominica?",
+      "Roseau"
+    ],
+    [
+      "¿Cuál es la capital de República Dominicana?",
+      "Santo Domingo"
+    ],
+    [
+      "¿Cuál es la capital de Ecuador?",
+      "Quito"
+    ],
+    [
+      "¿Cuál es la capital de Egipto?",
+      "El Cairo"
+    ],
+    [
+      "¿Cuál es la capital de El Salvador?",
+      "San Salvador"
+    ],
+    [
+      "¿Cuál es la capital de Emiratos Árabes Unidos?",
+      "Abu Dabi"
+    ],
+    [
+      "¿Cuál es la capital de Eritrea?",
+      "Asmara"
+    ],
+    [
+      "¿Cuál es la capital de Eslovaquia?",
+      "Bratislava"
+    ],
+    [
+      "¿Cuál es la capital de Eslovenia?",
+      "Liubliana"
+    ],
+    [
+      "¿Cuál es la capital de España?",
+      "Madrid"
+    ],
+    [
+      "¿Cuál es la capital de Estados Unidos?",
+      "Washington D.C."
+    ],
+    [
+      "¿Cuál es la capital de Estonia?",
+      "Tallinn"
+    ],
+    [
+      "¿Cuál es la capital de Etiopía?",
+      "Adís Abeba"
+    ],
+    [
+      "¿Cuál es la capital de Filipinas?",
+      "Manila"
+    ],
+    [
+      "¿Cuál es la capital de Finlandia?",
+      "Helsinki"
+    ],
+    [
+      "¿Cuál es la capital de Fiyi?",
+      "Suva"
+    ],
+    [
+      "¿Cuál es la capital de Francia?",
+      "París"
+    ],
+    [
+      "¿Cuál es la capital de Gabón?",
+      "Libreville"
+    ],
+    [
+      "¿Cuál es la capital de Gambia?",
+      "Banjul"
+    ],
+    [
+      "¿Cuál es la capital de Georgia?",
+      "Tiflis"
+    ],
+    [
+      "¿Cuál es la capital de Ghana?",
+      "Accra"
+    ],
+    [
+      "¿Cuál es la capital de Granada?",
+      "Saint George"
+    ],
+    [
+      "¿Cuál es la capital de Grecia?",
+      "Atenas"
+    ],
+    [
+      "¿Cuál es la capital de Guatemala?",
+      "Ciudad de Guatemala"
+    ],
+    [
+      "¿Cuál es la capital de Guinea?",
+      "Conakri"
+    ],
+    [
+      "¿Cuál es la capital de Guinea-Bisáu?",
+      "Bisáu"
+    ],
+    [
+      "¿Cuál es la capital de Guinea Ecuatorial?",
+      "Malabo"
+    ],
+    [
+      "¿Cuál es la capital de Guyana?",
+      "Georgetown"
+    ],
+    [
+      "¿Cuál es la capital de Haití?",
+      "Puerto Príncipe"
+    ],
+    [
+      "¿Cuál es la capital de Honduras?",
+      "Tegucigalpa y Comayagüela"
+    ],
+    [
+      "¿Cuál es la capital de Hungría?",
+      "Budapest"
+    ],
+    [
+      "¿Cuál es la capital de India?",
+      "Nueva Delhi"
+    ],
+    [
+      "¿Cuál es la capital de Indonesia?",
+      "Yakarta"
+    ],
+    [
+      "¿Cuál es la capital de Irak?",
+      "Bagdad"
+    ],
+    [
+      "¿Cuál es la capital de Irán?",
+      "Teherán"
+    ],
+    [
+      "¿Cuál es la capital de Irlanda?",
+      "Dublín"
+    ],
+    [
+      "¿Cuál es la capital de Islandia?",
+      "Reikiavik"
+    ],
+    [
+      "¿Cuál es la capital de Israel?",
+      "Tel Aviv"
+    ],
+    [
+      "¿Cuál es la capital de Italia?",
+      "Roma"
+    ],
+    [
+      "¿Cuál es la capital de Jamaica?",
+      "Kingston"
+    ],
+    [
+      "¿Cuál es la capital de Japón?",
+      "Tokio"
+    ],
+    [
+      "¿Cuál es la capital de Jordania?",
+      "Amán"
+    ],
+    [
+      "¿Cuál es la capital de Kazajistán?",
+      "Nursultán"
+    ],
+    [
+      "¿Cuál es la capital de Kenia?",
+      "Nairobi"
+    ],
+    [
+      "¿Cuál es la capital de Kirguistán?",
+      "Biskek"
+    ],
+    [
+      "¿Cuál es la capital de Kiribati?",
+      "Tarawa"
+    ],
+    [
+      "¿Cuál es la capital de Kuwait?",
+      "Kuwait"
+    ],
+    [
+      "¿Cuál es la capital de Laos?",
+      "Vientián"
+    ],
+    [
+      "¿Cuál es la capital de Lesoto?",
+      "Maseru"
+    ],
+    [
+      "¿Cuál es la capital de Letonia?",
+      "Riga"
+    ],
+    [
+      "¿Cuál es la capital de Líbano?",
+      "Beirut"
+    ],
+    [
+      "¿Cuál es la capital de Liberia?",
+      "Monrovia"
+    ],
+    [
+      "¿Cuál es la capital de Libia?",
+      "Trípoli"
+    ],
+    [
+      "¿Cuál es la capital de Liechtenstein?",
+      "Vaduz"
+    ],
+    [
+      "¿Cuál es la capital de Lituania?",
+      "Vilna"
+    ],
+    [
+      "¿Cuál es la capital de Luxemburgo?",
+      "Luxemburgo"
+    ],
+    [
+      "¿Cuál es la capital de Macedonia del Norte?",
+      "Skopie"
+    ],
+    [
+      "¿Cuál es la capital de Madagascar?",
+      "Antananarivo"
+    ],
+    [
+      "¿Cuál es la capital de Malasia?",
+      "Kuala Lumpur"
+    ],
+    [
+      "¿Cuál es la capital de Malaui?",
+      "Lilongüe"
+    ],
+    [
+      "¿Cuál es la capital de Maldivas?",
+      "Malé"
+    ],
+    [
+      "¿Cuál es la capital de Mali?",
+      "Bamako"
+    ],
+    [
+      "¿Cuál es la capital de Malta?",
+      "La Valetta"
+    ],
+    [
+      "¿Cuál es la capital de Marruecos?",
+      "Rabat"
+    ],
+    [
+      "¿Cuál es la capital de Islas Marshall?",
+      "Majuro"
+    ],
+    [
+      "¿Cuál es la capital de Mauricio?",
+      "Port Louis"
+    ],
+    [
+      "¿Cuál es la capital de Mauritania?",
+      "Nuakchot"
+    ],
+    [
+      "¿Cuál es la capital de México?",
+      "Ciudad de México"
+    ],
+    [
+      "¿Cuál es la capital de Micronesia?",
+      "Palikir"
+    ],
+    [
+      "¿Cuál es la capital de Moldavia?",
+      "Chisináu"
+    ],
+    [
+      "¿Cuál es la capital de Mónaco?",
+      "Mónaco"
+    ],
+    [
+      "¿Cuál es la capital de Mongolia?",
+      "Ulán Bator"
+    ],
+    [
+      "¿Cuál es la capital de Montenegro?",
+      "Podgorica"
+    ],
+    [
+      "¿Cuál es la capital de Mozambique?",
+      "Maputo"
+    ],
+    [
+      "¿Cuál es la capital de Namibia?",
+      "Windhoek"
+    ],
+    [
+      "¿Cuál es la capital de Nauru?",
+      "Yaren"
+    ],
+    [
+      "¿Cuál es la capital de Nepal?",
+      "Katmandú"
+    ],
+    [
+      "¿Cuál es la capital de Nicaragua?",
+      "Managua"
+    ],
+    [
+      "¿Cuál es la capital de Níger?",
+      "Niamey"
+    ],
+    [
+      "¿Cuál es la capital de Nigeria?",
+      "Abuya"
+    ],
+    [
+      "¿Cuál es la capital de Noruega?",
+      "Oslo"
+    ],
+    [
+      "¿Cuál es la capital de Nueva Zelanda?",
+      "Wellington"
+    ],
+    [
+      "¿Cuál es la capital de Omán?",
+      "Mascate"
+    ],
+    [
+      "¿Cuál es la capital de Países Bajos?",
+      "Ámsterdam"
+    ],
+    [
+      "¿Cuál es la capital de Pakistán?",
+      "Islamabad"
+    ],
+    [
+      "¿Cuál es la capital de Palaos?",
+      "Melekeok"
+    ],
+    [
+      "¿Cuál es la capital de Palestina?",
+      "Jerusalén Este / Ramala"
+    ],
+    [
+      "¿Cuál es la capital de Panamá?",
+      "Panamá"
+    ],
+    [
+      "¿Cuál es la capital de Papúa Nueva Guinea?",
+      "Puerto Moresby"
+    ],
+    [
+      "¿Cuál es la capital de Paraguay?",
+      "Asunción"
+    ],
+    [
+      "¿Cuál es la capital de Perú?",
+      "Lima"
+    ],
+    [
+      "¿Cuál es la capital de Polonia?",
+      "Varsovia"
+    ],
+    [
+      "¿Cuál es la capital de Portugal?",
+      "Lisboa"
+    ],
+    [
+      "¿Cuál es la capital de Reino Unido?",
+      "Londres"
+    ],
+    [
+      "¿Cuál es la capital de Ruanda?",
+      "Kigali"
+    ],
+    [
+      "¿Cuál es la capital de Rumania?",
+      "Bucarest"
+    ],
+    [
+      "¿Cuál es la capital de Rusia?",
+      "Moscú"
+    ],
+    [
+      "¿Cuál es la capital de Islas Salomón?",
+      "Honiara"
+    ],
+    [
+      "¿Cuál es la capital de Samoa?",
+      "Apia"
+    ],
+    [
+      "¿Cuál es la capital de San Cristóbal y Nieves?",
+      "Basseterre"
+    ],
+    [
+      "¿Cuál es la capital de San Marino?",
+      "San Marino"
+    ],
+    [
+      "¿Cuál es la capital de San Vicente y las Granadinas?",
+      "Kingstown"
+    ],
+    [
+      "¿Cuál es la capital de Santa Lucía?",
+      "Castries"
+    ],
+    [
+      "¿Cuál es la capital de Santo Tomé y Príncipe?",
+      "Santo Tomé"
+    ],
+    [
+      "¿Cuál es la capital de Senegal?",
+      "Dakar"
+    ],
+    [
+      "¿Cuál es la capital de Serbia?",
+      "Belgrado"
+    ],
+    [
+      "¿Cuál es la capital de Seychelles?",
+      "Victoria"
+    ],
+    [
+      "¿Cuál es la capital de Sierra Leona?",
+      "Freetown"
+    ],
+    [
+      "¿Cuál es la capital de Singapur?",
+      "Singapur"
+    ],
+    [
+      "¿Cuál es la capital de Siria?",
+      "Damasco"
+    ],
+    [
+      "¿Cuál es la capital de Somalia?",
+      "Mogadiscio"
+    ],
+    [
+      "¿Cuál es la capital de Sri Lanka?",
+      "Sri Jayewardenepura y Colombo"
+    ],
+    [
+      "¿Cuál es la capital de Suazilandia?",
+      "Babane y Lobamba"
+    ],
+    [
+      "¿Cuál es la capital de Sudáfrica?",
+      "Pretoria, Bloemfontein y Ciudad del Cabo"
+    ],
+    [
+      "¿Cuál es la capital de Sudán?",
+      "Jartum"
+    ],
+    [
+      "¿Cuál es la capital de Sudán del Sur?",
+      "Jartum"
+    ],
+    [
+      "¿Cuál es la capital de Suecia?",
+      "Estocolmo"
+    ],
+    [
+      "¿Cuál es la capital de Suiza?",
+      "Berna"
+    ],
+    [
+      "¿Cuál es la capital de Surinam?",
+      "Paramaribo"
+    ],
+    [
+      "¿Cuál es la capital de Tailandia?",
+      "Bangkok"
+    ],
+    [
+      "¿Cuál es la capital de Tanzania?",
+      "Dodoma"
+    ],
+    [
+      "¿Cuál es la capital de Tayikistán?",
+      "Dusambé"
+    ],
+    [
+      "¿Cuál es la capital de Timor Oriental?",
+      "Dili"
+    ],
+    [
+      "¿Cuál es la capital de Togo?",
+      "Lomé"
+    ],
+    [
+      "¿Cuál es la capital de Tonga?",
+      "Nukualofa"
+    ],
+    [
+      "¿Cuál es la capital de Trinidad y Tobago?",
+      "Puerto España"
+    ],
+    [
+      "¿Cuál es la capital de Túnez?",
+      "Túnez"
+    ],
+    [
+      "¿Cuál es la capital de Turkmenistán?",
+      "Asjabad"
+    ],
+    [
+      "¿Cuál es la capital de Turquía?",
+      "Ankara"
+    ],
+    [
+      "¿Cuál es la capital de Tuvalu?",
+      "Fongafale"
+    ],
+    [
+      "¿Cuál es la capital de Ucrania?",
+      "Kiev"
+    ],
+    [
+      "¿Cuál es la capital de Uganda?",
+      "Kampala"
+    ],
+    [
+      "¿Cuál es la capital de Uruguay?",
+      "Montevideo"
+    ],
+    [
+      "¿Cuál es la capital de Uzbekistán?",
+      "Taskent"
+    ],
+    [
+      "¿Cuál es la capital de Vanuatu?",
+      "Port Vila"
+    ],
+    [
+      "¿Cuál es la capital de Ciudad del Vaticano?",
+      "Ciudad del Vaticano"
+    ],
+    [
+      "¿Cuál es la capital de Venezuela?",
+      "Caracas"
+    ],
+    [
+      "¿Cuál es la capital de Vietnam?",
+      "Hanói"
+    ],
+    [
+      "¿Cuál es la capital de Yemen?",
+      "Saná"
+    ],
+    [
+      "¿Cuál es la capital de Yibuti?",
+      "Yibuti"
+    ],
+    [
+      "¿Cuál es la capital de Zambia?",
+      "Lusaka"
+    ],
+    [
+      "¿Cuál es la capital de Zimbabue?",
+      "Harare"
+    ]
+  ]
+}

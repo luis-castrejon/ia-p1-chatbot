@@ -80,7 +80,7 @@ chatbot = ChatBot(
         {
             'import_path': 'chatterbot.logic.BestMatch',
             'default_response': 'Lo siento, pero no entiendo.',
-            'maximum_similarity_threshold': 0.90
+            'maximum_similarity_threshold': 1
         },
         '__main__.AdaptadorLogicoTiempoEspanol',
         '__main__.AdaptadorLogicoMatematicasEspanol',
@@ -92,9 +92,10 @@ chatbot = ChatBot(
     ]
 )
 
-# Entrenamiento del chatbot (opcional si ya está entrenado)
+# Entrenamiento del chatbot
 entrenador = ChatterBotCorpusTrainer(chatbot)
 entrenador.train("chatterbot.corpus.spanish")
+entrenador.train("./data/paises_y_capitales.json")
 
 # Interacción con el chatbot
 print("\n¡Hola! Soy TerminalBot. ¿En qué puedo ayudarte? Escribe 'salir' para terminar.")
