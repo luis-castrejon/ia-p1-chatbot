@@ -7,6 +7,7 @@ from datetime import datetime
 import pytz
 import re
 import json
+import random
 
 
 # Adaptador lógico para responder la hora en español
@@ -137,6 +138,24 @@ class AdaptadorLogicoFechaEspanol(LogicAdapter):
         declaracion_respuesta.confidence = 1
         return declaracion_respuesta
 
+class AdaptadorLogicoMotivacional(LogicAdapter):
+    def __init__(self, chatbot, **kwargs):
+        super().__init__(chatbot, **kwargs)
+        with open('./data/quotes.json', encoding='utf-8') as archivo:
+            self.frases_motivacionales = json.load(archivo)["conversations"]
+
+    def can_process(self, declaracion):
+        texto = declaracion.text.lower()
+        if 'frase motivacional' in texto:
+            return True
+        return False
+
+    def process(self, declaracion_entrada, parametros_adicionales_seleccion_respuesta):
+        frase_motivacional, autor = random.choice(self.frases_motivacionales)
+        declaracion_respuesta = Statement(text=f"{frase_motivacional}\n- {autor}")
+        declaracion_respuesta.confidence = 1
+        return declaracion_respuesta
+
 # Configuración del chatbot
 chatbot = ChatBot(
     'TerminalBot',
@@ -153,6 +172,7 @@ chatbot = ChatBot(
         '__main__.AdaptadorLogicoMatematicasEspanol',
         '__main__.AdaptadorLogicoCapitales',
         '__main__.AdaptadorLogicoFechaEspanol',
+        '__main__.AdaptadorLogicoMotivacional',
         {
             'import_path': 'chatterbot.logic.SpecificResponseAdapter',
             'input_texto': 'Ayuda',
