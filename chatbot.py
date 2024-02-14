@@ -9,7 +9,6 @@ import re
 import json
 import random
 
-
 # Adaptador lógico para responder la hora en español
 class AdaptadorLogicoTiempoEspanol(LogicAdapter):
     def __init__(self, chatbot, **kwargs):
@@ -113,7 +112,7 @@ class AdaptadorLogicoFechaEspanol(LogicAdapter):
 
     def can_process(self, declaracion):
         texto = declaracion.text.lower()
-        if any(palabra in texto for palabra in ['fecha', 'día', 'dia']):
+        if any(frase in texto for frase in ['fecha', 'día es', 'dia es']):
             return True
         return False
 
@@ -174,36 +173,94 @@ class AdaptadorLogicoDatosCuriosos(LogicAdapter):
         declaracion_respuesta.confidence = 1
         return declaracion_respuesta
 
-# Configuración del chatbot
+# Adaptador lógico para contar cuántos días faltan hasta una fecha específica
+class AdaptadorLogicoConteoDias(LogicAdapter):
+    def __init__(self, chatbot, **kwargs):
+        super().__init__(chatbot, **kwargs)
+
+    def can_process(self, declaracion):
+        texto = declaracion.text.lower()
+        return bool(re.search(r'\b(cuántos días faltan para el \d{1,2} de \w+ del \d{4})\b', texto))
+
+    def process(self, declaracion_entrada, parametros_adicionales_seleccion_respuesta):
+        meses = {
+            'enero': 'January',
+            'febrero': 'February',
+            'marzo': 'March',
+            'abril': 'April',
+            'mayo': 'May',
+            'junio': 'June',
+            'julio': 'July',
+            'agosto': 'August',
+            'septiembre': 'September',
+            'octubre': 'October',
+            'noviembre': 'November',
+            'diciembre': 'December'
+        }
+
+        try:
+            fecha_match = re.search(r'\bpara el (\d{1,2}) de (\w+) del (\d{4})\b', declaracion_entrada.text)
+            if fecha_match:
+                dia, mes_espanol, ano = fecha_match.groups()
+                mes_ingles = meses.get(mes_espanol.lower())
+                if mes_ingles:
+                    zona_horaria = pytz.timezone('America/Mexico_City')
+                    fecha_texto = f"{dia} {mes_ingles} {ano}"
+                    fecha_objetivo = zona_horaria.localize(datetime.strptime(fecha_texto, '%d %B %Y'))
+                    ahora = datetime.now(zona_horaria)
+
+                    diferencia_total = fecha_objetivo - ahora
+                    dias = diferencia_total.days
+                    horas = diferencia_total.seconds // 3600
+                    minutos = (diferencia_total.seconds % 3600) // 60
+
+                    if dias > 0 or (dias == 0 and diferencia_total.seconds > 0):
+                        respuesta_texto = f"Faltan {dias} días, {horas} horas y {minutos} minutos para el {dia} de {mes_espanol} del {ano}."
+                    elif dias == 0 and diferencia_total.seconds == 0:
+                        respuesta_texto = "Hoy es el día indicado."
+                    else:
+                        respuesta_texto = f"El {dia} de {mes_espanol} del {ano} ya pasó."
+                else:
+                    respuesta_texto = "Por favor, proporciona un nombre de mes válido."
+            else:
+                respuesta_texto = "Por favor, proporciona la fecha en el formato 'dd de mm del aaaa'."
+            declaracion_respuesta = Statement(text=respuesta_texto)
+            declaracion_respuesta.confidence = 1
+        except Exception as e:
+            print(f"Error al procesar la solicitud: {e}")
+            declaracion_respuesta = Statement(text="Lo siento, hubo un error al procesar tu solicitud.")
+            declaracion_respuesta.confidence = 0
+        return declaracion_respuesta
+
 chatbot = ChatBot(
     'TerminalBot',
     storage_adapter='chatterbot.storage.SQLStorageAdapter',
     database_uri='sqlite:///:memory:',
     logic_adapters=[
-        'chatterbot.logic.MathematicalEvaluation',
-        {
-            'import_path': 'chatterbot.logic.BestMatch',
-            'default_response': 'Lo siento, pero no entiendo.',
-            'maximum_similarity_threshold': 0.95
-        },
+        # Tu AdaptadorLogicoConteoDias va primero para darle la mayor prioridad
+        '__main__.AdaptadorLogicoConteoDias',
+
+        # Luego, coloca otros adaptadores personalizados que has mencionado
         '__main__.AdaptadorLogicoTiempoEspanol',
         '__main__.AdaptadorLogicoMatematicasEspanol',
         '__main__.AdaptadorLogicoCapitales',
         '__main__.AdaptadorLogicoFechaEspanol',
         '__main__.AdaptadorLogicoMotivacional',
         '__main__.AdaptadorLogicoDatosCuriosos',
+
+        # El adaptador para respuestas específicas
         {
             'import_path': 'chatterbot.logic.SpecificResponseAdapter',
-            'input_texto': 'Ayuda',
-            'output_texto': 'Puedes preguntarme sobre cálculos matemáticos, la hora actual, o cualquier cosa general.'
+            'input_text': 'Ayuda',
+            'output_text': 'Puedes preguntarme sobre cálculos matemáticos, la hora actual, o cualquier cosa general.'
+        },
+        {
+            'import_path': 'chatterbot.logic.BestMatch',
+            'default_response': 'Lo siento, pero no entiendo.',
+            'maximum_similarity_threshold': 0.95
         }
     ]
 )
-
-# Entrenamiento del chatbot
-entrenador = ChatterBotCorpusTrainer(chatbot)
-#entrenador.train("chatterbot.corpus.spanish")
-#entrenador.train("./data/paises_y_capitales.json")
 
 # Interacción con el chatbot
 print("\n¡Hola! Soy TerminalBot. ¿En qué puedo ayudarte? Escribe 'salir' para terminar.")
