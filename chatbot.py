@@ -156,6 +156,24 @@ class AdaptadorLogicoMotivacional(LogicAdapter):
         declaracion_respuesta.confidence = 1
         return declaracion_respuesta
 
+class AdaptadorLogicoDatosCuriosos(LogicAdapter):
+    def __init__(self, chatbot, **kwargs):
+        super().__init__(chatbot, **kwargs)
+        with open('./data/datos_curiosos.json', encoding='utf-8') as archivo:
+            self.datos_curiosos = json.load(archivo)["conversations"]
+
+    def can_process(self, declaracion):
+        texto = declaracion.text.lower()
+        if 'dato curioso' in texto:
+            return True
+        return False
+
+    def process(self, declaracion_entrada, parametros_adicionales_seleccion_respuesta):
+        dato_curioso = random.choice(self.datos_curiosos)
+        declaracion_respuesta = Statement(text=dato_curioso)
+        declaracion_respuesta.confidence = 1
+        return declaracion_respuesta
+
 # Configuración del chatbot
 chatbot = ChatBot(
     'TerminalBot',
@@ -173,6 +191,7 @@ chatbot = ChatBot(
         '__main__.AdaptadorLogicoCapitales',
         '__main__.AdaptadorLogicoFechaEspanol',
         '__main__.AdaptadorLogicoMotivacional',
+        '__main__.AdaptadorLogicoDatosCuriosos',
         {
             'import_path': 'chatterbot.logic.SpecificResponseAdapter',
             'input_texto': 'Ayuda',
