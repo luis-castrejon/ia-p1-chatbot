@@ -34,16 +34,15 @@ Este comando construye una imagen Docker llamada `chatbot` basada en las instruc
 Una vez construida la imagen, puedes iniciar el chatbot ejecutando:
 
 ```bash
-docker run --rm -it -v "$(pwd):/app" -e PYTHONDONTWRITEBYTECODE=1 chatbot
+docker run --rm -it -v "$(pwd):/app" chatbot
 ```
 
 Este comando inicia un contenedor Docker basado en la imagen `chatbot`, en modo interactivo, permitiéndote interactuar directamente con el chatbot a través de la terminal.
 
 ### Interactuar con el ChatBot
 
-Tras iniciar el contenedor, el chatbot estará listo para recibir tus mensajes. Simplemente escribe tu mensaje en la terminal y el chatbot responderá. Para terminar la conversación y salir del chatbot, escribe "adiós".
+Tras iniciar el contenedor, el chatbot estará listo para recibir tus mensajes. Simplemente escribe tu mensaje en la terminal y el chatbot responderá. Para terminar la conversación y salir del chatbot, escribe "salir".
 
 ## Notas Adicionales
 
 - El comando `-v "$(pwd):/app"` monta el directorio actual del proyecto dentro del contenedor, lo que permite que el chatbot acceda a los archivos necesarios.
-- La opción `-e PYTHONDONTWRITEBYTECODE=1` previene la creación de archivos `.pyc`, manteniendo tu directorio limpio.

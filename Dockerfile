@@ -1,6 +1,5 @@
 FROM python:3.7.9
 
-# Establecer la zona horaria en el Dockerfile
 ENV TZ=America/Mexico_City
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
