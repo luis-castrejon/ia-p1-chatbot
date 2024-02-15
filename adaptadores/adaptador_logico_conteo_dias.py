@@ -9,16 +9,41 @@ import re
 TRADUCCIONES_MESES_NORMALIZADOS = {normalizar_texto(espanol): ingles for ingles, espanol in config.TRADUCCIONES_MESES.items()}
 
 class AdaptadorLogicoConteoDias(LogicAdapter):
+    """
+    Clase que implementa un adaptador lógico para contar los días que faltan para una fecha específica.
+
+    Atributos:
+    - zona_horaria: La zona horaria utilizada para realizar los cálculos de fechas y horas.
+    """
+
     def __init__(self, chatbot, **kwargs):
         super().__init__(chatbot, **kwargs)
-        # Uso directo de config.ZONA_HORARIA que ya tiene pytz.timezone aplicado
         self.zona_horaria = config.ZONA_HORARIA
 
     def can_process(self, declaracion):
+        """
+        Verifica si la declaración puede ser procesada por este adaptador lógico.
+
+        Parámetros:
+        - declaracion: La declaración a procesar.
+
+        Retorna:
+        - True si la declaración contiene la frase "cuantos dias faltan para el", False en caso contrario.
+        """
         texto_normalizado = normalizar_texto(declaracion.text)
         return "cuantos dias faltan para el" in texto_normalizado
 
     def process(self, declaracion_entrada, parametros_adicionales_seleccion_respuesta):
+        """
+        Procesa la declaración y devuelve una respuesta.
+
+        Parámetros:
+        - declaracion_entrada: La declaración de entrada a procesar.
+        - parametros_adicionales_seleccion_respuesta: Parámetros adicionales para seleccionar la respuesta.
+
+        Retorna:
+        - Una declaración de respuesta con la respuesta generada.
+        """
         texto_normalizado = normalizar_texto(declaracion_entrada.text)
         try:
             fecha_match = re.search(r'cuantos dias faltan para el (\d{1,2}) de (\w+)(?: del (\d{4}))?', texto_normalizado)
